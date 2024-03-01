@@ -58,6 +58,16 @@ current time at UTC timezone is used at the start of test as time value
 until it is modified by calling ``mocked_time.set(...)`` or
 ``mocked_time.sleep(...)``
 
+Timezones
+~~~~~~~~~
+``mocked_time.now()`` returns offset-aware datetime in UTC timezone, no matter
+which offset-aware or offset-native datetime was set in ``mocked_time.set(...)``
+if ``tz`` argument was not passed. If ``tz`` argument was passed, then ``mocked_time.now()``
+returns offset-native datetime in ``tz`` timezone.
+Example:
+.. literalinclude:: ../tests/plugins/test_mocked_time.py
+
+
 Classes
 ~~~~~~~
 
