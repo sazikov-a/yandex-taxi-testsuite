@@ -69,7 +69,6 @@ Example:
 
 .. literalinclude:: ../tests/plugins/test_mocked_time.py
 
-
 Classes
 ~~~~~~~
 
