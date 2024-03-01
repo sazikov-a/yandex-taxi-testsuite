@@ -64,7 +64,9 @@ Timezones
 which offset-aware or offset-native datetime was set in ``mocked_time.set(...)``
 if ``tz`` argument was not passed. If ``tz`` argument was passed, then ``mocked_time.now()``
 returns offset-native datetime in ``tz`` timezone.
+
 Example:
+
 .. literalinclude:: ../tests/plugins/test_mocked_time.py
 
 
