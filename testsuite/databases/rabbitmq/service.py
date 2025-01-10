@@ -38,10 +38,6 @@ def create_rabbitmq_service(
             'RABBITMQ_TMPDIR': working_dir,
             'RABBITMQ_TCP_PORT': str(settings.tcp_port),
             'RABBITMQ_EPMD_PORT': str(settings.epmd_port),
-            'RABBITMQ_BINDIR': utils.getenv_str(
-                key='TESTSUITE_RABBITMQ_BINDIR',
-                default='/usr/lib/rabbitmq/bin/',
-            ),
         },
         check_ports=[settings.tcp_port, settings.epmd_port],
         start_timeout=utils.getenv_float(

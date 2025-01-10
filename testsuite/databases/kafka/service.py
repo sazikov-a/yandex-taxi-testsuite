@@ -57,7 +57,6 @@ def create_kafka_service(
         working_dir=working_dir,
         environment={
             'KAFKA_TMPDIR': working_dir,
-            'KAFKA_HOME': os.getenv('KAFKA_HOME', '/etc/kafka'),
             'KAFKA_SERVER_HOST': settings.server_host,
             'KAFKA_SERVER_PORT': str(settings.server_port),
             'KAFKA_CONTROLLER_PORT': str(settings.controller_port),

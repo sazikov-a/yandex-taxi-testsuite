@@ -4,6 +4,12 @@ MIN_JAVA_VERSION="8"
 MIN_KAFKA_VERSION_MAJOR="3"
 MIN_KAFKA_VERSION_MINOR="3"
 
+if [ "$(uname)" = "Darwin" ]; then
+    DEFAULT_PATH="/opt/homebrew/opt/kafka/libexec"
+else
+    DEFAULT_PATH="/etc/kafka"
+fi
+
 check_java() {
     if [ -n "$JAVA_HOME" ] && [ -x "$JAVA_HOME/bin/java" ];  then
         _java="$JAVA_HOME/bin/java"
@@ -17,7 +23,7 @@ check_java() {
     fi
 
     if [ "$_java" ]; then
-        version=$("$_java" -version 2>&1 | grep -oP 'version "?(1\.)?\K\d+')
+        version=$("$_java" -version 2>&1 | awk -F '"' '/version/ {print $2}' | cut -d . -f 1)
         echo "Current Java version is $version"
         if [ "$version" -ge $MIN_JAVA_VERSION ]; then
             return 0
@@ -28,18 +34,33 @@ check_java() {
     fi
 }
 
+check_home() {
+    [ -x "$1/bin/kafka-run-class.sh" ] && [ -e "$1/config/kraft/server.properties" ]
+}
+
 find_kafka() {
-    if [ "x$KAFKA_HOME" = "x" ]; then
-        echo "
-    KAFKA_HOME env is not specified!!!.
-    Please download Kafka from https://kafka.apache.org/downloads,
-    unpack the archive and place path to it in KAFKA_HOME"
-        return 1
+    if [ "x$KAFKA_HOME" != "x" ]; then
+        if check_home "$KAFKA_HOME"; then
+            return 0
+        fi
     fi
-    return 0
+    if check_home "$DEFAULT_PATH"; then
+        KAFKA_HOME="$DEFAULT_PATH"
+        return 0
+    fi
+
+    echo "
+Kafka sources not found in KAFKA_HOME and in $DEFAULT_PATH !!!.
+Please download Kafka from https://kafka.apache.org/downloads,
+unpack the archive and place path to it in KAFKA_HOME.
+Note: For MacOS just install KAFKA with 'brew install kafka'
+"
+
+    return 1
 }
 
 check_kafka() {
+    echo "Kafka home: $KAFKA_HOME"
     kafka_bin_dir="$KAFKA_HOME/bin"
     echo "Kafka bin directory: $kafka_bin_dir"
     cd "$kafka_bin_dir"
