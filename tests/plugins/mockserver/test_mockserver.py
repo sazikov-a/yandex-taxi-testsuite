@@ -78,6 +78,23 @@ async def test_handler(
     assert data == b'hello'
 
 
+async def test_constant_mockserver_response(
+    mockserver: fixture_types.MockserverFixture,
+    mockserver_client: Client,
+):
+    constant_response = mockserver.make_response('hello')
+
+    @mockserver.json_handler('/foo')
+    def _foo_handler(request):
+        return constant_response
+
+    for _ in range(2):
+        response = await mockserver_client.get('/foo')
+        assert response.status == 200
+        data = await response.content.read()
+        assert data == b'hello'
+
+
 async def test_user_error(
     mockserver: fixture_types.MockserverFixture,
     mockserver_client: Client,

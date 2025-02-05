@@ -1,4 +1,5 @@
 import contextlib
+import copy
 import itertools
 import logging
 import pathlib
@@ -165,7 +166,9 @@ class Session:
         try:
             response = await handler(request, **kwargs)
             if isinstance(response, aiohttp.web.Response):
-                return response
+                return copy.deepcopy(response)
+            elif isinstance(response, http.MockedError):
+                return _mocked_error_response(request, response.error_code)
             raise exceptions.MockServerError(
                 'aiohttp.web.Response instance is expected '
                 f'{response!r} given',
