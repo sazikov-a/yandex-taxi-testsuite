@@ -67,15 +67,17 @@ async def test_handler(
     mockserver: fixture_types.MockserverFixture,
     mockserver_client: Client,
 ):
+    mock_response = mockserver.make_response(status=500)
+
     @mockserver.json_handler('/foo')
     def _foo_handler(request):
-        return mockserver.make_response('hello')
+        return mock_response
 
     response = await mockserver_client.get('/foo')
-    assert response.status == 200
-    data = await response.content.read()
+    assert response.status == 500
 
-    assert data == b'hello'
+    response = await mockserver_client.get('/foo')
+    assert response.status == 500
 
 
 async def test_user_error(
