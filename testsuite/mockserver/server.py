@@ -82,7 +82,7 @@ class Handler:
         response = await self.callqueue(*args, **kwargs)
         if not self.json_response:
             return response
-        if isinstance(response, aiohttp.web.Response):
+        if isinstance(response, (http.Response, aiohttp.web.Response)):
             return response
         return http.make_response(json=response)
 
@@ -164,10 +164,14 @@ class Session:
 
         try:
             response = await handler(request, **kwargs)
-            if isinstance(response, aiohttp.web.Response):
+            if isinstance(response, http.Response):
+                return response.to_aiohttp()
+            elif isinstance(response, aiohttp.web.Response):
                 return response
+            elif isinstance(response, http.MockedError):
+                return _mocked_error_response(request, response.error_code)
             raise exceptions.MockServerError(
-                'aiohttp.web.Response instance is expected '
+                'http.Response or aiohttp.web.Response instance is expected '
                 f'{response!r} given',
             )
         except http.MockedError as exc:
@@ -589,7 +593,7 @@ def _create_ssl_context(ssl_info: classes.SslCertInfo) -> ssl.SSLContext:
 
 
 def _internal_error(message: str = 'Internal error') -> aiohttp.web.Response:
-    return http.make_response(message, status=500)
+    return http.make_response(message, status=500).to_aiohttp()
 
 
 def _mocked_error_response(request, error_code) -> aiohttp.web.Response:
@@ -606,7 +610,7 @@ def _mocked_error_response(request, error_code) -> aiohttp.web.Response:
         response='',
         status=599,
         headers={_ERROR_HEADER: error_code},
-    )
+    ).to_aiohttp()
 
 
 def _create_server_obj(mockserver_info, pytestconfig) -> Server:
