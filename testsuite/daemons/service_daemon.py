@@ -4,6 +4,8 @@ import os
 import signal
 import subprocess
 import time
+import contextlib
+import aiohttp
 from typing import AsyncGenerator
 from typing import Awaitable
 from typing import Callable
@@ -12,8 +14,6 @@ from typing import Optional
 from typing import Sequence
 from typing import Tuple
 from typing import Any
-
-import aiohttp
 
 from testsuite.daemons import spawn
 from testsuite.daemons.spawn import __tracebackhide__
@@ -29,7 +29,7 @@ HealthCheckType = Callable[..., Awaitable[bool]]
 ClientSessionFactory = Callable[..., aiohttp.ClientSession]
 
 
-@compat.asynccontextmanager
+@contextlib.asynccontextmanager
 async def start(
     args: Sequence[str],
     *,
@@ -101,7 +101,7 @@ async def service_wait(
             reporter.write_line('')
 
 
-@compat.asynccontextmanager
+@contextlib.asynccontextmanager
 async def start_dummy_process():
     yield None
 
@@ -199,7 +199,7 @@ def _prepare_env(*envs: Optional[Dict[str, str]]) -> Dict[str, str]:
     return result
 
 
-@compat.asynccontextmanager
+@contextlib.asynccontextmanager
 async def _service_daemon(
     args: Sequence[str],
     *,

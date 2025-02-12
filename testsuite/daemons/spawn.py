@@ -6,6 +6,7 @@ import signal
 import subprocess
 import sys
 import time
+import contextlib
 from typing import AsyncGenerator
 from typing import Dict
 from typing import Sequence
@@ -77,7 +78,7 @@ class AioReaders:
         self._tasks.append(asyncio.create_task(coro))
 
 
-@compat.asynccontextmanager
+@contextlib.asynccontextmanager
 async def spawned(
     args: Sequence[str],
     *,
@@ -128,7 +129,7 @@ def _exit_code_text(retcode: int):
     return signal_error_fmt.format(signal_name=signal_name)
 
 
-@compat.asynccontextmanager
+@contextlib.asynccontextmanager
 async def _shutdown_service(*args, **kwargs):
     try:
         yield
