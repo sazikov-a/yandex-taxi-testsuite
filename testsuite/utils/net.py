@@ -1,7 +1,7 @@
 import asyncio
+import contextlib
 import pathlib
 import socket
-import contextlib
 
 DEFAULT_BACKLOG = 50
 

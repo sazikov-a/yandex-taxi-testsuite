@@ -13,16 +13,6 @@ import warnings
 import aiohttp.web
 import yarl
 
-<<<<<<< HEAD
-from testsuite.utils import cached_property
-from testsuite.utils import callinfo
-from testsuite.utils import compat
-import contextlib
-from testsuite.utils import http
-from testsuite.utils import net as net_utils
-from testsuite.utils import url_util
-=======
->>>>>>> 9eec21b (fix formatting)
 from testsuite import utils
 from testsuite.utils import cached_property, callinfo, compat, http, url_util
 from testsuite.utils import net as net_utils

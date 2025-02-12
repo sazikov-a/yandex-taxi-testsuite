@@ -5,14 +5,7 @@ import typing
 
 import pytest
 
-<<<<<<< HEAD
-from testsuite.utils import cached_property
-from testsuite.utils import compat
-import contextlib
-from testsuite.utils import net
-=======
 from testsuite.utils import cached_property, compat, net
->>>>>>> 9eec21b (fix formatting)
 
 
 class Mockserver:

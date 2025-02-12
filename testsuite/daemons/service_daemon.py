@@ -1,19 +1,22 @@
 # pylint: disable=not-async-context-manager
 import asyncio
+import contextlib
 import os
 import signal
 import subprocess
 import time
-import contextlib
+from typing import (
+    Any,
+    AsyncGenerator,
+    Awaitable,
+    Callable,
+    Dict,
+    Optional,
+    Sequence,
+    Tuple,
+)
+
 import aiohttp
-from typing import AsyncGenerator
-from typing import Awaitable
-from typing import Callable
-from typing import Dict
-from typing import Optional
-from typing import Sequence
-from typing import Tuple
-from typing import Any
 
 from testsuite.daemons import spawn
 from testsuite.daemons.spawn import __tracebackhide__

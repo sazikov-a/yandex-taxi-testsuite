@@ -1,9 +1,9 @@
+import contextlib
 import typing
 
 import pytest
 
 from testsuite.utils import compat
-import contextlib
 
 from . import classes, service
 
