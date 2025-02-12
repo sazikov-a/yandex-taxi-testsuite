@@ -88,11 +88,14 @@ class Comparator:
             if different_sequence_lengths:
                 left_type_info = _make_length_info(left)
                 right_type_info = _make_length_info(right)
-            yield (), CmpInfo(
-                CMP_INCONSISTENCY_TYPES,
-                left_type_info,
-                right_type_info,
-                None,
+            yield (
+                (),
+                CmpInfo(
+                    CMP_INCONSISTENCY_TYPES,
+                    left_type_info,
+                    right_type_info,
+                    None,
+                ),
             )
         if (
             not same_types

@@ -149,7 +149,7 @@ def pytest_addoption(parser):
         type='bool',
         default=False,
         help=(
-            'Controls value of \'retryWrites\' parameter of mongo connection '
+            "Controls value of 'retryWrites' parameter of mongo connection "
             'string.'
         ),
     )
@@ -295,9 +295,9 @@ def _mongo_create_indexes(
 
 
 @pytest.fixture(scope='session')
-def _mongo_thread_pool() -> (
-    annotations.YieldFixture[multiprocessing.pool.ThreadPool,]
-):
+def _mongo_thread_pool() -> annotations.YieldFixture[
+    multiprocessing.pool.ThreadPool,
+]:
     pool = multiprocessing.pool.ThreadPool(processes=1)
     with contextlib.closing(pool):
         yield pool

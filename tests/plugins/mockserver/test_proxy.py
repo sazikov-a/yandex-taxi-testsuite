@@ -12,7 +12,7 @@ def simple_client(mockserver_info):
             mockserver_info.host, mockserver_info.port
         )
 
-        request = f'GET {path} HTTP/1.0\r\n' f'\r\n'
+        request = f'GET {path} HTTP/1.0\r\n\r\n'
         writer.write(request.encode())
         await writer.drain()
 

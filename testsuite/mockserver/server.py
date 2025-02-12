@@ -427,14 +427,12 @@ class MockserverFixture:
 
         if raw_request:
             warnings.warn(
-                'raw_request=True is deprecated, '
-                'use aiohttp_handler() instead',
+                'raw_request=True is deprecated, use aiohttp_handler() instead',
                 DeprecationWarning,
             )
         if json_response:
             warnings.warn(
-                'json_response=True is deprecated, '
-                'use json_handler() instead',
+                'json_response=True is deprecated, use json_handler() instead',
                 DeprecationWarning,
             )
 

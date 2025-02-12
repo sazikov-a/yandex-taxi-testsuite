@@ -60,11 +60,11 @@ def test_parse_uri(uri: str, expected: connection.PgConnectionInfo):
     'dsn,expected',
     [
         # quoted empty value
-        ('host=\'\'', connection.PgConnectionInfo(host='')),
+        ("host=''", connection.PgConnectionInfo(host='')),
         # quoted whitespace
-        ('host=\'a b\'', connection.PgConnectionInfo(host='a b')),
+        ("host='a b'", connection.PgConnectionInfo(host='a b')),
         # escaped quote
-        (r'host=\'', connection.PgConnectionInfo(host='\'')),
+        (r'host=\'', connection.PgConnectionInfo(host="'")),
         # escaped backslash
         ('host=\\\\', connection.PgConnectionInfo(host='\\')),
         ('host=::1 port=54', connection.PgConnectionInfo(host='::1', port=54)),
@@ -75,7 +75,7 @@ def test_parse_uri(uri: str, expected: connection.PgConnectionInfo):
             connection.PgConnectionInfo(user='usr', password='pwd'),
         ),
         (
-            'options=\'-c geqo=off\'',
+            "options='-c geqo=off'",
             connection.PgConnectionInfo(options='-c geqo=off'),
         ),
         ('sslmode=require', connection.PgConnectionInfo(sslmode='require')),

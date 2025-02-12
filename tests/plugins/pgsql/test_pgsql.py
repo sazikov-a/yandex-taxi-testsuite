@@ -37,8 +37,8 @@ def test_shards(pgsql):
 
 
 def test_pgsql_apply_queries(pgsql):
-    pgsql['foo@0'].apply_queries(['INSERT INTO foo VALUES (\'mark0\')'])
-    pgsql['foo@1'].apply_queries(['INSERT INTO foo VALUES (\'mark1\')'])
+    pgsql['foo@0'].apply_queries(["INSERT INTO foo VALUES ('mark0')"])
+    pgsql['foo@1'].apply_queries(["INSERT INTO foo VALUES ('mark1')"])
 
     for shard_id, dbname in enumerate(['foo@0', 'foo@1']):
         cursor = pgsql[dbname].cursor()
@@ -48,8 +48,8 @@ def test_pgsql_apply_queries(pgsql):
         assert result == ['mark%d' % shard_id]
 
 
-@pytest.mark.pgsql('foo@0', queries=['INSERT INTO foo VALUES (\'mark0\')'])
-@pytest.mark.pgsql('foo@1', queries=['INSERT INTO foo VALUES (\'mark1\')'])
+@pytest.mark.pgsql('foo@0', queries=["INSERT INTO foo VALUES ('mark0')"])
+@pytest.mark.pgsql('foo@1', queries=["INSERT INTO foo VALUES ('mark1')"])
 def test_pgsql_mark_queries(pgsql):
     for shard_id, dbname in enumerate(['foo@0', 'foo@1']):
         cursor = pgsql[dbname].cursor()
@@ -107,7 +107,7 @@ def test_reconnect(pgsql):
         assert pgsql['foo@0'].conn is not None
 
 
-@pytest.mark.pgsql('foo@0', queries=['INSERT INTO foo VALUES (\'mark1\')'])
+@pytest.mark.pgsql('foo@0', queries=["INSERT INTO foo VALUES ('mark1')"])
 def test_dict_cursor(pgsql):
     cursor = pgsql['foo@0'].dict_cursor()
     cursor.execute('SELECT value from foo')

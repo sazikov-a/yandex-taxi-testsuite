@@ -14,11 +14,11 @@ def clickhouse_local():
 
 @pytest.mark.clickhouse(
     'testdb',
-    queries=['INSERT INTO foo(id, value) VALUES(1, \'one\')'],
+    queries=["INSERT INTO foo(id, value) VALUES(1, 'one')"],
 )
 def test_apply(clickhouse):
     clickhouse['testdb'].execute(
-        'INSERT INTO foo(id, value) VALUES(3, \'three\')',
+        "INSERT INTO foo(id, value) VALUES(3, 'three')",
     )
     res = clickhouse['testdb'].execute('SELECT * FROM foo ORDER BY id')
 
