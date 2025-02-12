@@ -5,9 +5,7 @@ import typing
 
 from testsuite.utils import yaml_util
 
-from . import service
-from . import utils
-
+from . import service, utils
 
 CONFIG_PATH = pathlib.Path('~/.config/yasuite/env.yaml')
 DEFAULT_WORKER_ID = 'master'

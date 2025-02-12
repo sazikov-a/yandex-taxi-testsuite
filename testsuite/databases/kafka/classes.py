@@ -1,9 +1,9 @@
 import asyncio
 import dataclasses
-import typing
-import aiokafka
 import logging
+import typing
 
+import aiokafka
 
 logger = logging.getLogger(__name__)
 

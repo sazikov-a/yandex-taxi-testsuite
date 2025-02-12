@@ -4,8 +4,7 @@ import socket
 import typing
 import warnings
 
-from testsuite.environment import service
-from testsuite.environment import utils
+from testsuite.environment import service, utils
 
 from . import genredis
 

@@ -5,7 +5,6 @@ import pytest
 
 from testsuite.databases.pgsql import discover
 
-
 pytest_plugins = [
     'testsuite.pytest_plugin',
     'testsuite.databases.pgsql.pytest_plugin',

@@ -6,8 +6,7 @@ import typing
 
 from testsuite import annotations
 
-from . import shell
-from . import utils
+from . import shell, utils
 
 logger = logging.getLogger(__name__)
 

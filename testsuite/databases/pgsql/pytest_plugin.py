@@ -1,18 +1,13 @@
-import concurrent.futures
 import collections
 import collections.abc
+import concurrent.futures
 import contextlib
 import re
 import typing
 
 import pytest
 
-from . import connection
-from . import control
-from . import discover
-from . import exceptions
-from . import service
-from . import utils
+from . import connection, control, discover, exceptions, service, utils
 
 DB_FILE_RE_PATTERN = re.compile(r'/pg_(?P<pg_db_alias>\w+)(/?\w*)\.sql$')
 

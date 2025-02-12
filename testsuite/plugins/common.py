@@ -7,9 +7,7 @@ import pytest
 
 from testsuite import annotations
 from testsuite._internal import fixture_class
-from testsuite.utils import cached_property
-from testsuite.utils import json_util
-from testsuite.utils import yaml_util
+from testsuite.utils import cached_property, json_util, yaml_util
 
 
 class BaseError(Exception):

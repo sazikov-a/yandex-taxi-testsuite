@@ -2,8 +2,7 @@
 import multidict
 import pytest
 
-from testsuite.mockserver import exceptions
-from testsuite.mockserver import server
+from testsuite.mockserver import exceptions, server
 from testsuite.utils import http
 
 

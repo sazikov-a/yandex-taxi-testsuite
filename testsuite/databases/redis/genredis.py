@@ -6,7 +6,6 @@ import typing
 
 from testsuite.utils import subprocess_helper
 
-
 MASTER_TPL_FILENAME = 'redis_master.conf.tpl'
 SENTINEL_TPL_FILENAME = 'redis_sentinel.conf.tpl'
 SLAVE_TPL_FILENAME = 'redis_slave.conf.tpl'

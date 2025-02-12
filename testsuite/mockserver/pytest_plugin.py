@@ -7,9 +7,7 @@ import pytest
 from testsuite import annotations
 from testsuite.utils import colors
 
-from . import classes
-from . import exceptions
-from . import server
+from . import classes, exceptions, server
 
 MOCKSERVER_DEFAULT_PORT = 9999
 MOCKSERVER_SSL_DEFAULT_PORT = 9998

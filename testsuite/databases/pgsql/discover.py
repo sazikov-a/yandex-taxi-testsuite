@@ -1,18 +1,13 @@
 import collections
 import dataclasses
 import hashlib
-import typing
 import itertools
 import logging
 import pathlib
-from typing import DefaultDict
-from typing import Dict
-from typing import Iterable
-from typing import List
-from typing import Optional
+import typing
+from typing import DefaultDict, Dict, Iterable, List, Optional
 
-from . import exceptions
-from . import utils
+from . import exceptions, utils
 
 logger = logging.getLogger(__name__)
 

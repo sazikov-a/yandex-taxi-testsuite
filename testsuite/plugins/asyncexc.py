@@ -4,8 +4,9 @@ Async exceptions handler.
 Handle excpetions in background coroutines.
 """
 
-import pytest
 import typing
+
+import pytest
 
 
 class BackgroundExceptionError(Exception):

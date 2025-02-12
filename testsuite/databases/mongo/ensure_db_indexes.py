@@ -1,7 +1,7 @@
-import pymongo
-import pytest
 import typing
 
+import pymongo
+import pytest
 
 SORT_STR_TO_PYMONGO = {
     'ascending': pymongo.ASCENDING,

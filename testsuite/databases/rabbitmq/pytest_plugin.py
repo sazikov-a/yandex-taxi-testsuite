@@ -1,7 +1,6 @@
 import pytest
 
-from . import classes
-from . import service
+from . import classes, service
 
 
 def pytest_addoption(parser):

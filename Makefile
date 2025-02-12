@@ -31,7 +31,7 @@ check-linters:
 
 format:
 	ruff format .
-	ruff check --ignore ALL --select I .
+	ruff check --ignore ALL --select I --fix .
 
 venv-tests:
 venv-check-linters:

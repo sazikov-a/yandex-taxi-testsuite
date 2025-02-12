@@ -1,8 +1,10 @@
 import aiohttp.web
 import pytest
 
-from testsuite.mockserver import exceptions
-from testsuite.mockserver import server  # pylint: disable=protected-access
+from testsuite.mockserver import (
+    exceptions,
+    server,  # pylint: disable=protected-access
+)
 
 
 # pylint: disable=invalid-name

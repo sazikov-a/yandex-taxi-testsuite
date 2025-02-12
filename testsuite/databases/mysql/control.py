@@ -10,8 +10,7 @@ import pymysql.constants
 from testsuite.environment import shell
 from testsuite.utils import cached_property
 
-from . import classes
-from . import exceptions
+from . import classes, exceptions
 
 logger = logging.getLogger(__name__)
 

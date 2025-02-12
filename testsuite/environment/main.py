@@ -8,9 +8,7 @@ import sys
 
 from testsuite.utils import colors
 
-from . import control
-from . import shell
-from . import utils
+from . import control, shell, utils
 
 DEFAULT_SERVICE_PLUGINS = [
     'testsuite.databases.mongo.pytest_plugin',

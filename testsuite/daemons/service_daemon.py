@@ -19,7 +19,6 @@ from testsuite.daemons import spawn
 from testsuite.daemons.spawn import __tracebackhide__
 from testsuite.utils import compat
 
-
 POLL_RETRIES = 2000
 PING_REQUEST_TIMEOUT = 1.0
 PING_RESPONSE_CODES = (200,)

@@ -1,9 +1,7 @@
 # pylint: disable=protected-access
 import pytest
 
-from testsuite.mockserver import classes
-from testsuite.mockserver import exceptions
-from testsuite.mockserver import server
+from testsuite.mockserver import classes, exceptions, server
 
 
 @pytest.fixture

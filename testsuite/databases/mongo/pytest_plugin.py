@@ -7,19 +7,15 @@ import random
 import re
 import typing
 
-from bson import json_util
 import pymongo
 import pymongo.collection
 import pymongo.errors
 import pytest
+from bson import json_util
 
-from testsuite import annotations
-from testsuite import utils
+from testsuite import annotations, utils
 
-from . import connection
-from . import ensure_db_indexes
-from . import mongo_schema
-from . import service
+from . import connection, ensure_db_indexes, mongo_schema, service
 
 # pylint: disable=too-many-statements
 

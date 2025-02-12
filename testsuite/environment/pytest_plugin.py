@@ -3,8 +3,7 @@ import typing
 
 import pytest
 
-from . import control
-from . import utils
+from . import control, utils
 
 
 class Hookspec:

@@ -5,7 +5,6 @@ import typing
 
 from testsuite.utils import subprocess_helper
 
-
 BASE_BRANCH = 'develop'
 UPSTREAM_REMOTES = ('upstream', 'origin')
 

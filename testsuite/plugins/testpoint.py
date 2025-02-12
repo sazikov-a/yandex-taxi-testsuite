@@ -5,9 +5,7 @@ import pytest
 
 from testsuite import annotations
 from testsuite.mockserver import server
-from testsuite.utils import callinfo
-from testsuite.utils import http
-
+from testsuite.utils import callinfo, http
 
 TestpointHandler = typing.Callable[
     [annotations.JsonAnyOptional],

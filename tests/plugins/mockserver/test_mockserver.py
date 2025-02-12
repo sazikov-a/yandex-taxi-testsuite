@@ -3,8 +3,8 @@ import aiohttp
 import aiohttp.web
 import pytest
 
-from testsuite.mockserver import exceptions
 from testsuite._internal import fixture_types
+from testsuite.mockserver import exceptions
 
 
 class UserError(Exception):

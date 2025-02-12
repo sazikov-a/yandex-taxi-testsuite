@@ -2,13 +2,12 @@ import json
 import ssl
 import typing
 import uuid
-import yarl
 
 import aiohttp
+import yarl
 
 from testsuite import annotations
-from testsuite.utils import http
-from testsuite.utils import url_util
+from testsuite.utils import http, url_util
 
 DEFAULT_HOST = 'localhost'
 DEFAULT_TIMEOUT = 120.0

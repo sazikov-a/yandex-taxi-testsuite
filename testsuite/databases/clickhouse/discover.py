@@ -2,8 +2,7 @@ import collections
 import pathlib
 import typing
 
-from . import classes
-from . import utils
+from . import classes, utils
 
 
 def find_schemas(
