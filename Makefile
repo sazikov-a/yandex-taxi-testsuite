@@ -26,7 +26,7 @@ check-format:
 	ruff format --check --diff .
 
 check-linters:
-	ruff check $(PY_DIRS) --show-file
+	ruff check $(PY_DIRS) --show-fixes
 
 format:
 	ruff format .
