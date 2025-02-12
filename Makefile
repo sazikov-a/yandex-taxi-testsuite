@@ -24,12 +24,14 @@ check-mypy:
 
 check-format:
 	ruff format --check --diff .
+	ruff check --ignore ALL --select I --diff .
 
 check-linters:
 	ruff check $(PY_DIRS) --show-fixes
 
 format:
 	ruff format .
+	ruff check --ignore ALL --select I .
 
 venv-tests:
 venv-check-linters:
