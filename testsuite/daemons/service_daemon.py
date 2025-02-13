@@ -160,7 +160,7 @@ def _make_ping_health_check(
         try:
             response = await session.get(
                 ping_url,
-                timeout=ping_request_timeout,
+                timeout=ping_request_timeout,  # type: ignore[arg-type]
             )
             if response.status in ping_response_codes:
                 return True

@@ -72,7 +72,7 @@ class BaseAiohttpClient:
             http_method,
             url,
             headers=headers,
-            ssl=self._ssl_context,
+            ssl=self._ssl_context,  # type: ignore[arg-type]
             **kwargs,
         )
         return response
