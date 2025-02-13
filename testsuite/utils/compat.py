@@ -10,4 +10,4 @@ if not hasattr(contextlib, 'aclosing'):
             await obj.aclose()
 
 else:
-    aclosing = contextlib.aclosing
+    aclosing = contextlib.aclosing  # type: ignore[assignment]
