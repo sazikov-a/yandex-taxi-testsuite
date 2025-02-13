@@ -1,6 +1,5 @@
 import contextlib
 
-
 # Required for compatibility with https://github.com/userver-framework/userver
 asynccontextmanager = contextlib.asynccontextmanager
 
