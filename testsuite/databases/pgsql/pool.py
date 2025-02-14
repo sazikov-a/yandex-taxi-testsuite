@@ -1,6 +1,5 @@
-import typing
 import contextlib
-
+import typing
 
 import psycopg2.extensions
 import psycopg2.pool

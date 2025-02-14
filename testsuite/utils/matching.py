@@ -1,7 +1,7 @@
 import collections.abc
 import operator
-import typing
 import re
+import typing
 
 import dateutil.parser
 

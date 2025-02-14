@@ -75,8 +75,11 @@ def _classname_to_fixture(string: str) -> str:
         string = string[:-7]
     if not string:
         raise RuntimeError('Empty class name given')
-    return string[0].lower() + re.sub(
-        r'[A-Z]',
-        lambda matched: '_' + matched.group(0).lower(),  # type: ignore[operator]
-        string[1:],
+    return (
+        string[0].lower()
+        + re.sub(
+            r'[A-Z]',
+            lambda matched: '_' + matched.group(0).lower(),  # type: ignore[operator]
+            string[1:],
+        )
     )

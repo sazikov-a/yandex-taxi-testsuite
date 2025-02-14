@@ -1,4 +1,5 @@
 import asyncio
+import contextlib
 import ctypes
 import inspect
 import logging
@@ -6,10 +7,7 @@ import signal
 import subprocess
 import sys
 import time
-import contextlib
-from typing import AsyncGenerator
-from typing import Dict
-from typing import Sequence
+from typing import AsyncGenerator, Dict, Sequence
 
 from testsuite.utils import compat
 

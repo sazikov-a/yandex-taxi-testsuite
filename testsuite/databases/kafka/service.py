@@ -2,10 +2,9 @@ import os
 import pathlib
 import typing
 
-from . import classes
+from testsuite.environment import service, utils
 
-from testsuite.environment import service
-from testsuite.environment import utils
+from . import classes
 
 DEFAULT_SERVER_HOST = 'localhost'
 DEFAULT_SERVER_PORT = 9099

@@ -3,9 +3,7 @@ import sys
 
 import pytest
 
-from testsuite.daemons import pytest_plugin
-from testsuite.daemons import service_client
-from testsuite.daemons import service_daemon
+from testsuite.daemons import pytest_plugin, service_client, service_daemon
 from testsuite.utils import net as net_utils
 
 HTTPD_NAME = f'{__name__}.httpd'

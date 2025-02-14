@@ -3,10 +3,7 @@ import typing
 
 import pytest
 
-from . import classes
-from . import control
-from . import service
-from . import utils
+from . import classes, control, service, utils
 
 
 def pytest_addoption(parser):

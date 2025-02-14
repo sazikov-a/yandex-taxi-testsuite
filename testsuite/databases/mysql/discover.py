@@ -1,13 +1,8 @@
 import collections
 import pathlib
-from typing import Any
-from typing import DefaultDict
-from typing import Dict
-from typing import List
-from typing import Optional
+from typing import Any, DefaultDict, Dict, List, Optional
 
-from . import classes
-from . import utils
+from . import classes, utils
 
 
 def find_schemas(

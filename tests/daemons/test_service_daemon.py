@@ -8,8 +8,7 @@ import sys
 import aiohttp
 import pytest
 
-from testsuite.daemons import service_daemon
-from testsuite.daemons import spawn
+from testsuite.daemons import service_daemon, spawn
 from testsuite.utils import callinfo
 
 

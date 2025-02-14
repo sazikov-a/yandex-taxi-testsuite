@@ -19,26 +19,25 @@ tests:
 test-examples:
 	make -C docs/examples runtests
 
-linters:
-# stop the build if there are Python syntax errors or undefined names
-	flake8 $(PY_DIRS) --count --select=E9,F63,F7,F82 --show-source --statistics
-# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-	flake8 $(PY_DIRS) --count --exit-zero --max-complexity=10 --max-line-length=79 --statistics
-
 check-mypy:
 	mypy testsuite tests
 
-check-black:
-	black --check --diff .
+check-format:
+	ruff format --check --diff .
+	ruff check --ignore ALL --select I --diff .
 
-black:
-	black .
+check-linters:
+	ruff check $(PY_DIRS) --show-fixes
 
-venv-linters:
+format:
+	ruff format .
+	ruff check --ignore ALL --select I --fix .
+
 venv-tests:
+venv-check-linters:
 venv-check-mypy:
-venv-check-black:
-venv-black:
+venv-check-format:
+venv-format:
 venv-start-release:
 venv-release-upload-testpypi:
 venv-release-upload-pypi:

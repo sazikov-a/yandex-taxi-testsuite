@@ -5,9 +5,7 @@ import typing
 import aiohttp.web
 
 from testsuite import annotations
-from testsuite.utils import callinfo
-from testsuite.utils import http
-from testsuite.utils import url_util
+from testsuite.utils import callinfo, http, url_util
 
 GenericRequestHandler = typing.Callable[
     ...,

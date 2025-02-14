@@ -2,8 +2,7 @@ import typing
 
 import aiohttp.web
 
-from testsuite.utils import callinfo
-from testsuite.utils import http
+from testsuite.utils import callinfo, http
 
 
 def magic_arg(func):

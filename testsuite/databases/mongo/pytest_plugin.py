@@ -7,19 +7,15 @@ import random
 import re
 import typing
 
-from bson import json_util
 import pymongo
 import pymongo.collection
 import pymongo.errors
 import pytest
+from bson import json_util
 
-from testsuite import annotations
-from testsuite import utils
+from testsuite import annotations, utils
 
-from . import connection
-from . import ensure_db_indexes
-from . import mongo_schema
-from . import service
+from . import connection, ensure_db_indexes, mongo_schema, service
 
 # pylint: disable=too-many-statements
 
@@ -149,7 +145,7 @@ def pytest_addoption(parser):
         type='bool',
         default=False,
         help=(
-            'Controls value of \'retryWrites\' parameter of mongo connection '
+            "Controls value of 'retryWrites' parameter of mongo connection "
             'string.'
         ),
     )
@@ -295,9 +291,9 @@ def _mongo_create_indexes(
 
 
 @pytest.fixture(scope='session')
-def _mongo_thread_pool() -> (
-    annotations.YieldFixture[multiprocessing.pool.ThreadPool,]
-):
+def _mongo_thread_pool() -> annotations.YieldFixture[
+    multiprocessing.pool.ThreadPool,
+]:
     pool = multiprocessing.pool.ThreadPool(processes=1)
     with contextlib.closing(pool):
         yield pool

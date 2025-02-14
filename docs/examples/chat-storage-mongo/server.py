@@ -1,9 +1,9 @@
 import argparse
 import uuid
 
+import pymongo
 from aiohttp import web
 from motor import motor_asyncio
-import pymongo
 
 HTTP_TIMEOUT = 10
 

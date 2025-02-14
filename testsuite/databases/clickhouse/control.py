@@ -7,7 +7,6 @@ import clickhouse_driver
 
 from . import classes
 
-
 logger = logging.getLogger(__name__)
 
 

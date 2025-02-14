@@ -1,14 +1,11 @@
 import asyncio
 import contextlib
-import typing
 import socket
+import typing
 
 import pytest
 
-from testsuite.utils import cached_property
-from testsuite.utils import compat
-import contextlib
-from testsuite.utils import net
+from testsuite.utils import cached_property, compat, net
 
 
 class Mockserver:

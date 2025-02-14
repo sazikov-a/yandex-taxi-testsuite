@@ -1,10 +1,10 @@
 # pylint: disable=protected-access
-import aiohttp.test_utils
-import pytest
 import typing
 
-from testsuite.mockserver import exceptions
-from testsuite.mockserver import server
+import aiohttp.test_utils
+import pytest
+
+from testsuite.mockserver import exceptions, server
 
 
 @pytest.fixture(autouse=True)

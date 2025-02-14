@@ -2,8 +2,7 @@ import typing
 
 from testsuite import utils
 
-from . import connection
-from . import pool
+from . import connection, pool
 
 CREATE_DATABASE_TEMPLATE = """
 CREATE DATABASE "{}" WITH TEMPLATE = template0

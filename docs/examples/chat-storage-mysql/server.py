@@ -1,7 +1,7 @@
 import argparse
 
-from aiohttp import web
 import aiomysql
+from aiohttp import web
 
 HTTP_TIMEOUT = 10
 

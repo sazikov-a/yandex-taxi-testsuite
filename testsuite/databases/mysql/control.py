@@ -10,8 +10,7 @@ import pymysql.constants
 from testsuite.environment import shell
 from testsuite.utils import cached_property
 
-from . import classes
-from . import exceptions
+from . import classes, exceptions
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +56,7 @@ class ConnectionWrapper:
                 queries = []
                 for table in self._tables:
                     queries.append(
-                        f'select \'{table}\' as name, count(*) as c from {table}'
+                        f"select '{table}' as name, count(*) as c from {table}"
                     )
                 subquery = ' union '.join(queries)
                 query = f'select name from ({subquery}) tables where c>0;'
@@ -96,8 +95,7 @@ class ConnectionWrapper:
                     cursor.execute(query.body, args=[])
                 except pymysql.Error as exc:
                     error_message = (
-                        f'MySQL apply query error\n'
-                        f'Query from: {query.source}\n'
+                        f'MySQL apply query error\nQuery from: {query.source}\n'
                     )
                     if query.path:
                         error_message += f'File path: {query.path}\n'
@@ -133,7 +131,7 @@ class ConnectionCache:
             host=conninfo.hostname,
             port=conninfo.port,
             user=conninfo.user,
-            password=conninfo.password or "",
+            password=conninfo.password or '',
             database=conninfo.dbname,
             client_flag=pymysql.constants.CLIENT.MULTI_STATEMENTS,
         )

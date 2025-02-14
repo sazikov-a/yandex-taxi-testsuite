@@ -1,8 +1,7 @@
 .[mongodb,postgresql,redis,mysql,clickhouse,rabbitmq,kafka]
 
 # Development requirements
-flake8
-black
+ruff
 mypy
 
 # MyPy requirements

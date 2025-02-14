@@ -9,22 +9,15 @@ import typing
 import urllib.parse
 import uuid
 import warnings
-import yarl
 
 import aiohttp.web
+import yarl
 
-from testsuite.utils import cached_property
-from testsuite.utils import callinfo
-from testsuite.utils import compat
-import contextlib
-from testsuite.utils import http
-from testsuite.utils import net as net_utils
-from testsuite.utils import url_util
 from testsuite import utils
+from testsuite.utils import cached_property, callinfo, compat, http, url_util
+from testsuite.utils import net as net_utils
 
-from . import classes
-from . import exceptions
-from . import magicargs
+from . import classes, exceptions, magicargs
 
 DEFAULT_TRACE_ID_HEADER = 'X-YaTraceId'
 DEFAULT_SPAN_ID_HEADER = 'X-YaSpanId'
@@ -427,14 +420,12 @@ class MockserverFixture:
 
         if raw_request:
             warnings.warn(
-                'raw_request=True is deprecated, '
-                'use aiohttp_handler() instead',
+                'raw_request=True is deprecated, use aiohttp_handler() instead',
                 DeprecationWarning,
             )
         if json_response:
             warnings.warn(
-                'json_response=True is deprecated, '
-                'use json_handler() instead',
+                'json_response=True is deprecated, use json_handler() instead',
                 DeprecationWarning,
             )
 

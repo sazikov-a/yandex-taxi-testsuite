@@ -57,31 +57,31 @@ class Foo:
             [
                 '',
                 'Comparison failed (3):',
-                ' * [\'key_1\']: 1 != 11',
-                ' * [\'key_2\'][1]: \'list_v_2\' != \'list_v_3\'',
-                ' * [\'key_3\'][0]: \'list_v_3\' != \'list_v_3.1\'',
+                " * ['key_1']: 1 != 11",
+                " * ['key_2'][1]: 'list_v_2' != 'list_v_3'",
+                " * ['key_3'][0]: 'list_v_3' != 'list_v_3.1'",
                 '',
                 'Type mismatch (2):',
-                ' * [\'key_2\']: '
-                '<class \'list\'; length=2> != <class \'list\'; length=3>',
-                ' * [\'key_4\']: '
-                '<class \'list\'; length=2> != <class \'list\'; length=4>',
+                " * ['key_2']: "
+                "<class 'list'; length=2> != <class 'list'; length=3>",
+                " * ['key_4']: "
+                "<class 'list'; length=2> != <class 'list'; length=4>",
                 '',
                 'Extra fields in the left dict (1):',
-                ' * [\'key_5\']: dict value: {}',
+                " * ['key_5']: dict value: {}",
                 '',
                 'Extra fields in the right dict (6):',
-                ' * [\'key_2\'][2]: list value: \'list_v_2\'',
-                ' * [\'key_3\'][1][\'k1\']: dict value: \'v1\'',
-                ' * [\'key_4\'][2]: list value: \'list_v_4\'',
-                ' * [\'key_4\'][3]: list value: \'list_v_3\'',
-                ' * [\'key_6\']: dict value: {\'dict_key\': []}',
-                ' * [\'key_7\']: dict value:',
-                '    {\'extra_big_dict_k1\': {\'k0\': {\'\\n\\n\'}, \'k1\': '
-                '\'key\\nvalue\\n\'},',
-                '     \'extra_big_dict_k2\': {\'k2\': {\'set\'},',
-                '                           \'k3\\n\': \'key\\nvalue\\n\',',
-                '                           \'k4\': \'key\\nvalue\\n\'}}',
+                " * ['key_2'][2]: list value: 'list_v_2'",
+                " * ['key_3'][1]['k1']: dict value: 'v1'",
+                " * ['key_4'][2]: list value: 'list_v_4'",
+                " * ['key_4'][3]: list value: 'list_v_3'",
+                " * ['key_6']: dict value: {'dict_key': []}",
+                " * ['key_7']: dict value:",
+                "    {'extra_big_dict_k1': {'k0': {'\\n\\n'}, 'k1': "
+                "'key\\nvalue\\n'},",
+                "     'extra_big_dict_k2': {'k2': {'set'},",
+                "                           'k3\\n': 'key\\nvalue\\n',",
+                "                           'k4': 'key\\nvalue\\n'}}",
             ],
         ),
         (
@@ -152,36 +152,34 @@ class Foo:
             [
                 '',
                 'Comparison failed (2):',
-                ' * [\'fail\']: range(0, 10) != range(0, 6)',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\'][3]'
-                '[\'another_set\']: {} != {Foo(bar)}',
+                " * ['fail']: range(0, 10) != range(0, 6)",
+                " * ['key'][1]['sub_key']['sub_value'][3]"
+                "['another_set']: {} != {Foo(bar)}",
                 '',
                 'Type mismatch (3):',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\']: '
-                '<class \'list\'; length=5> != <class \'list\'; length=7>',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\'][3]'
-                '[\'another_set\']: <class \'dict\'> != <class \'set\'>',
-                ' * [\'real\']: '
-                '<class \'list\'; length=10> != <class \'list\'; length=8>',
+                " * ['key'][1]['sub_key']['sub_value']: "
+                "<class 'list'; length=5> != <class 'list'; length=7>",
+                " * ['key'][1]['sub_key']['sub_value'][3]"
+                "['another_set']: <class 'dict'> != <class 'set'>",
+                " * ['real']: "
+                "<class 'list'; length=10> != <class 'list'; length=8>",
                 '',
                 'Extra fields in the left dict (2):',
-                ' * [\'real\'][8]: list value: 8',
-                ' * [\'real\'][9]: list value: 9',
+                " * ['real'][8]: list value: 8",
+                " * ['real'][9]: list value: 9",
                 '',
                 'Extra fields in the right dict (8):',
-                ' * [Foo()]: dict value: \'foo_value\'',
-                ' * [Foo(b\'\')]: dict value: \'b_foo_value\'',
-                ' * [\'extra\']: dict value: None',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\'][4]: '
+                " * [Foo()]: dict value: 'foo_value'",
+                " * [Foo(b'')]: dict value: 'b_foo_value'",
+                " * ['extra']: dict value: None",
+                " * ['key'][1]['sub_key']['sub_value'][4]: "
                 'set value: Foo(extra_foo)',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\'][4]: '
-                'set value: None',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\'][5]: '
-                'list value: [Foo(unsorted), 1, 2, \'bar\']',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value\'][6]: '
-                'list value: None',
-                ' * [\'key\'][1][\'sub_key\'][\'sub_value_2\']: '
-                'dict value: (\'world\', 101010, \'hello\')',
+                " * ['key'][1]['sub_key']['sub_value'][4]: set value: None",
+                " * ['key'][1]['sub_key']['sub_value'][5]: "
+                "list value: [Foo(unsorted), 1, 2, 'bar']",
+                " * ['key'][1]['sub_key']['sub_value'][6]: list value: None",
+                " * ['key'][1]['sub_key']['sub_value_2']: "
+                "dict value: ('world', 101010, 'hello')",
             ],
         ),
         (
@@ -190,7 +188,7 @@ class Foo:
             [
                 '',
                 'Extra fields in the right dict (1):',
-                ' * [\'\']: dict value: \'\'',
+                " * ['']: dict value: ''",
             ],
         ),
         (
@@ -199,9 +197,9 @@ class Foo:
             [
                 '',
                 'Extra fields in the right dict (3):',
-                ' * [1]: dict value: \'1\'',
-                ' * [\'1\']: dict value: 1',
-                ' * [b\'1\']: dict value: \'1\'',
+                " * [1]: dict value: '1'",
+                " * ['1']: dict value: 1",
+                " * [b'1']: dict value: '1'",
             ],
         ),
         (
@@ -210,14 +208,14 @@ class Foo:
             [
                 '',
                 'Comparison failed (3):',
-                ' * [1]: 1 != \'1\'',
-                ' * [\'1\']: \'1\' != 1',
-                ' * [b\'1\']: b\'1\' != \'1\'',
+                " * [1]: 1 != '1'",
+                " * ['1']: '1' != 1",
+                " * [b'1']: b'1' != '1'",
                 '',
                 'Type mismatch (3):',
-                ' * [1]: <class \'int\'> != <class \'str\'>',
-                ' * [\'1\']: <class \'str\'> != <class \'int\'>',
-                ' * [b\'1\']: <class \'bytes\'> != <class \'str\'>',
+                " * [1]: <class 'int'> != <class 'str'>",
+                " * ['1']: <class 'str'> != <class 'int'>",
+                " * [b'1']: <class 'bytes'> != <class 'str'>",
             ],
         ),
         (
@@ -229,14 +227,14 @@ class Foo:
                 ' * [2]: 3 != (3, 4)',
                 ' * [3][0]: 4 != 5',
                 ' * [3][1]: 5 != 6',
-                ' * [4]: {\'6\': 7} != 7',
+                " * [4]: {'6': 7} != 7",
                 ' * [5]: 9 != {}',
                 '',
                 'Type mismatch (4):',
-                ' * <class \'list\'; length=6> != <class \'list\'; length=8>',
-                ' * [2]: <class \'int\'> != <class \'tuple\'>',
-                ' * [4]: <class \'dict\'> != <class \'int\'>',
-                ' * [5]: <class \'int\'> != <class \'dict\'>',
+                " * <class 'list'; length=6> != <class 'list'; length=8>",
+                " * [2]: <class 'int'> != <class 'tuple'>",
+                " * [4]: <class 'dict'> != <class 'int'>",
+                " * [5]: <class 'int'> != <class 'dict'>",
                 '',
                 'Extra fields in the right list (2):',
                 ' * [6]: list value: 9',
@@ -249,10 +247,10 @@ class Foo:
             [
                 '',
                 'Comparison failed (1):',
-                ' * [\'v\']: (1, 2, 3) != [1, 2, 3]',
+                " * ['v']: (1, 2, 3) != [1, 2, 3]",
                 '',
                 'Type mismatch (1):',
-                ' * [\'v\']: <class \'tuple\'> != <class \'list\'>',
+                " * ['v']: <class 'tuple'> != <class 'list'>",
             ],
         ),
         (
@@ -261,15 +259,15 @@ class Foo:
             [
                 '',
                 'Comparison failed (1):',
-                ' * [\'v\']: (1, 2, 3) != [1, 2, 4]',
+                " * ['v']: (1, 2, 3) != [1, 2, 4]",
                 '',
                 'Type mismatch (2):',
-                ' * [\'v\']: <class \'tuple\'> != <class \'list\'>',
-                ' * [\'v2\']: '
-                '<class \'list\'; length=2> != <class \'list\'; length=3>',
+                " * ['v']: <class 'tuple'> != <class 'list'>",
+                " * ['v2']: "
+                "<class 'list'; length=2> != <class 'list'; length=3>",
                 '',
                 'Extra fields in the right dict (1):',
-                ' * [\'v2\'][2]: list value: 3',
+                " * ['v2'][2]: list value: 3",
             ],
         ),
         (
@@ -278,10 +276,10 @@ class Foo:
             [
                 '',
                 'Extra fields in the left dict (1):',
-                ' * [\'v\']: frozenset value: 1',
+                " * ['v']: frozenset value: 1",
                 '',
                 'Extra fields in the right dict (1):',
-                ' * [\'v\']: frozenset value: \'1\'',
+                " * ['v']: frozenset value: '1'",
             ],
         ),
         (
@@ -290,8 +288,8 @@ class Foo:
             [
                 '',
                 'Extra fields in the left set (3):',
-                ' * set value: \'232\'',
-                ' * set value: \'xx\'',
+                " * set value: '232'",
+                " * set value: 'xx'",
                 ' * set value: 3',
                 '',
                 'Extra fields in the right set (1):',

@@ -3,28 +3,27 @@ import inspect
 import itertools
 import signal
 import subprocess
-from typing import Any
-from typing import AsyncContextManager
-from typing import AsyncGenerator
-from typing import Callable
-from typing import Dict
-from typing import Optional
-from typing import Sequence
-from typing import Tuple
 import uuid
 import warnings
+from typing import (
+    Any,
+    AsyncContextManager,
+    AsyncGenerator,
+    Callable,
+    Dict,
+    Optional,
+    Sequence,
+    Tuple,
+)
 
 import aiohttp
 import pytest
 
 from testsuite import annotations
-from testsuite._internal import fixture_class
-from testsuite._internal import fixture_types
+from testsuite._internal import fixture_class, fixture_types
 from testsuite.utils import compat
 
-from . import service_client
-from . import service_daemon
-from . import spawn
+from . import service_client, service_daemon, spawn
 from .spawn import __tracebackhide__
 
 SHUTDOWN_SIGNALS = {

@@ -9,7 +9,7 @@ CONTENT_IN_GET_REQUEST_ERROR = (
     'GET requests cannot have content, but Content-Length header was sent.'
 )
 CHUNKED_CONTENT_IN_GET_REQUEST_ERROR = (
-    'GET requests cannot have content, but \'Transfer-Encoding: chunked\' '
+    "GET requests cannot have content, but 'Transfer-Encoding: chunked' "
     'header was sent.'
 )
 MULTIPART_MIME_PATTERN = """MIME-Version: 1.0
@@ -56,7 +56,7 @@ class HttpResponseError(BaseError):
     def __init__(self, *, url: str, status: int):
         self.url = url
         self.status = status
-        super().__init__(f'status={self.status}, url=\'{self.url}\'')
+        super().__init__(f"status={self.status}, url='{self.url}'")
 
 
 class InvalidRequestError(BaseError):

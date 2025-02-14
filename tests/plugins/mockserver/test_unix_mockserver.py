@@ -1,13 +1,12 @@
+import platform
+from typing import Any, Dict
+
 import aiohttp
 import pytest
-import platform
 
 from testsuite._internal import fixture_types
 from testsuite.daemons import service_client
-from testsuite.mockserver import classes
-from testsuite.mockserver import server
-from typing import Any
-from typing import Dict
+from testsuite.mockserver import classes, server
 
 if platform.system() == 'Darwin':
     _MOCKSERVER_SOCKET = 'socket'

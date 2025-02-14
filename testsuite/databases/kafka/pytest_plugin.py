@@ -1,12 +1,11 @@
+import contextlib
 import typing
 
 import pytest
 
-from . import service
-from . import classes
-
 from testsuite.utils import compat
-import contextlib
+
+from . import classes, service
 
 
 def pytest_addoption(parser):

@@ -14,14 +14,8 @@ import psycopg2.extras
 from testsuite import utils as testsuite_utils
 from testsuite.environment import shell
 
-from . import connection
-from . import discover
-from . import exceptions
-from . import service
-from . import testsuite_db
-from . import pool
+from . import connection, discover, exceptions, pool, service, testsuite_db
 from .exceptions import __tracebackhide__
-
 
 logger = logging.getLogger(__name__)
 
@@ -165,8 +159,7 @@ class ConnectionWrapper:
             cursor.execute(query.body)
         except psycopg2.DatabaseError as exc:
             error_message = (
-                f'PostgreSQL apply query error\n'
-                f'Query from: {query.source}\n'
+                f'PostgreSQL apply query error\nQuery from: {query.source}\n'
             )
             if query.path:
                 error_message += f'File path: {query.path}\n'
@@ -204,8 +197,7 @@ class PgDatabaseWrapper:
     def apply_queries(self, queries: typing.Iterable[str]) -> None:
         """Apply queries to database"""
         warnings.warn(
-            'Do not use apply_queries directly, '
-            'use @pytest.mark.pgsql instead',
+            'Do not use apply_queries directly, use @pytest.mark.pgsql instead',
         )
         self._connection.apply_queries(
             [

@@ -1,7 +1,7 @@
-import pymongo
-import pytest
 import typing
 
+import pymongo
+import pytest
 
 SORT_STR_TO_PYMONGO = {
     'ascending': pymongo.ASCENDING,
@@ -43,12 +43,12 @@ def ensure_db_indexes(dbase, db_settings, sharding_enabled=True):
                 for index in indexes:
                     _ensure_index(index, collection)
                 index_info = collection.index_information()
-                assert (
-                    len(index_info) == len(indexes) + 1
-                ), 'Collection {} have {} indexes, but must have {} '.format(
-                    alias,
-                    len(index_info),
-                    len(indexes) + 1,
+                assert len(index_info) == len(indexes) + 1, (
+                    'Collection {} have {} indexes, but must have {} '.format(
+                        alias,
+                        len(index_info),
+                        len(indexes) + 1,
+                    )
                 )
 
             if sharding_enabled:

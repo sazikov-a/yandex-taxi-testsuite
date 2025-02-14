@@ -47,12 +47,12 @@ extensions = [
     'sphinx_removed_in',
     'sphinxcontrib_trio',
     # Third-party extensions:
-    "sphinxcontrib.asyncio",
+    'sphinxcontrib.asyncio',
 ]
 
 intersphinx_mapping = {
-    "pytest": ("http://docs.pytest.org/en/latest/", None),
-    "python": ("http://docs.python.org/3", None),
+    'pytest': ('http://docs.pytest.org/en/latest/', None),
+    'python': ('http://docs.python.org/3', None),
 }
 
 # Add any paths that contain templates here, relative to this directory.

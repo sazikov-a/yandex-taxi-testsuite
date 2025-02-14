@@ -1,7 +1,6 @@
 import pytest
 
-from testsuite.databases.pgsql import discover
-from testsuite.databases.pgsql import exceptions
+from testsuite.databases.pgsql import discover, exceptions
 
 
 def test_database_name():

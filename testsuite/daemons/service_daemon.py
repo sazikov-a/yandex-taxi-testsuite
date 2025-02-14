@@ -1,24 +1,26 @@
 # pylint: disable=not-async-context-manager
 import asyncio
+import contextlib
 import os
 import signal
 import subprocess
 import time
-import contextlib
+from typing import (
+    Any,
+    AsyncGenerator,
+    Awaitable,
+    Callable,
+    Dict,
+    Optional,
+    Sequence,
+    Tuple,
+)
+
 import aiohttp
-from typing import AsyncGenerator
-from typing import Awaitable
-from typing import Callable
-from typing import Dict
-from typing import Optional
-from typing import Sequence
-from typing import Tuple
-from typing import Any
 
 from testsuite.daemons import spawn
 from testsuite.daemons.spawn import __tracebackhide__
 from testsuite.utils import compat
-
 
 POLL_RETRIES = 2000
 PING_REQUEST_TIMEOUT = 1.0
@@ -158,7 +160,7 @@ def _make_ping_health_check(
         try:
             response = await session.get(
                 ping_url,
-                timeout=ping_request_timeout,
+                timeout=ping_request_timeout,  # type: ignore[arg-type]
             )
             if response.status in ping_response_codes:
                 return True

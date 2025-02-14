@@ -35,12 +35,15 @@ jobs:
       run: |
           brew install pytest virtualenv
           make setup-dev-venv
-    - name: Lint with flake8
+    - name: Lint with Ruff
       run: |
-          make venv-linters
-    - name: Check PEP8 with black
+           make venv-check-linters
+    - name: Check formatting with Ruff
       run: |
-          make venv-check-black
+            make venv-check-format
+    - name: Check with MyPy
+      run: |
+            make venv-check-mypy
     - name: Test with pytest
       env:
           TESTSUITE_ALLOW_ROOT: 1
