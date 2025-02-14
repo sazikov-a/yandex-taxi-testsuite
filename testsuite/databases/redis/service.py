@@ -14,12 +14,16 @@ DEFAULT_SENTINEL_PORT = 26379
 DEFAULT_SLAVE_PORTS = (16380, 16390, 16381)
 DEFAULT_CLUSTER_PORTS = (17380, 17381, 17382, 17383, 17384, 17385)
 DEFAULT_CLUSTER_REPLICAS = 1
+DEFAULT_STANDALONE_PORT = 7000
 
 SERVICE_SCRIPT_PATH = pathlib.Path(__file__).parent.joinpath(
     'scripts/service-redis',
 )
 CLUSTER_SERVICE_SCRIPT_PATH = pathlib.Path(__file__).parent.joinpath(
     'scripts/service-cluster-redis',
+)
+STANDALONE_SERVICE_SCRIPT_PATH = pathlib.Path(__file__).parent.joinpath(
+    'scripts/service-standalone-redis',
 )
 
 
@@ -65,6 +69,11 @@ class ClusterServiceSettings(typing.NamedTuple):
             )
 
 
+class StandaloneServiceSettings(typing.NamedTuple):
+    host: str
+    port: int
+
+
 def get_service_settings():
     return ServiceSettings(
         host=_get_hostname(),
@@ -93,6 +102,16 @@ def get_cluster_service_settings():
         cluster_replicas=utils.getenv_int(
             key='TESTSUITE_REDIS_CLUSTER_REPLICAS',
             default=DEFAULT_CLUSTER_REPLICAS,
+        ),
+    )
+
+
+def get_standalone_service_settings():
+    return StandaloneServiceSettings(
+        host=_get_hostname(),
+        port=utils.getenv_int(
+            key='TESTSUITE_REDIS_STANDALONE_PORT',
+            default=DEFAULT_STANDALONE_PORT,
         ),
     )
 
@@ -179,6 +198,38 @@ def create_cluster_redis_service(
         },
         check_host=settings.host,
         check_ports=check_ports,
+        prestart_hook=prestart_hook,
+    )
+
+
+def create_standalone_redis_service(
+    service_name,
+    working_dir,
+    settings: typing.Optional[StandaloneServiceSettings] = None,
+    env=None,
+):
+    if settings is None:
+        settings = get_standalone_service_settings()
+    configs_dir = pathlib.Path(working_dir).joinpath('configs')
+
+    def prestart_hook():
+        configs_dir.mkdir(parents=True, exist_ok=True)
+        genredis.generate_standalone_redis_config(
+            output_path=configs_dir,
+            host=settings.host,
+            port=settings.port,
+        )
+
+    return service.ScriptService(
+        service_name=service_name,
+        script_path=str(STANDALONE_SERVICE_SCRIPT_PATH),
+        working_dir=working_dir,
+        environment={
+            'REDIS_CONFIGS_DIR': str(configs_dir),
+            **(env or {}),
+        },
+        check_host=settings.host,
+        check_ports=[settings.port],
         prestart_hook=prestart_hook,
     )
 
